@@ -43,7 +43,8 @@ public class WebServiceConnectionManagerWrapperImpl implements WebServiceConnect
     private Book requestBookAndIfNotNullSaveInRepository(String bookISBN) {
         Book bookFromWebService = webServiceConnectionManager.requestBook(bookISBN);
 
-        if (bookFromWebService != null) {
+        if (bookFromWebService != null && bookFromWebService.getIsbn() != null
+                && bookFromWebService.getIsbn().isNotNull()) {
             LOG.debug(Messages.SAVING_BOOK, bookFromWebService.getIsbn());
             bookFromWebService = bookRepository.save(bookFromWebService);
         }

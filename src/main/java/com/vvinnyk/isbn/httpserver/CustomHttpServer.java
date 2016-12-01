@@ -1,6 +1,5 @@
 package com.vvinnyk.isbn.httpserver;
 
-
 import com.sun.net.httpserver.HttpExchange;
 import com.sun.net.httpserver.HttpHandler;
 import com.sun.net.httpserver.HttpServer;
@@ -41,7 +40,7 @@ public class CustomHttpServer {
         HttpServer httpServer = HttpServer.create();
         httpServer.bind(new InetSocketAddress(port), 0);
 
-        httpServer.createContext("/", new EchoHandler());
+        httpServer.createContext("/", new BookHttpHandler());
 
         httpServer.setExecutor(null);
         httpServer.start();
@@ -60,7 +59,7 @@ public class CustomHttpServer {
         return Properties.DEFAULT_HTTP_SERVER_PORT;
     }
 
-    static class EchoHandler implements HttpHandler {
+    static class BookHttpHandler implements HttpHandler {
 
         @Override
         public void handle(HttpExchange httpExchange) throws IOException {

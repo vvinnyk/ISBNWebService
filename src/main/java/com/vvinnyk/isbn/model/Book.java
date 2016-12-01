@@ -253,4 +253,5 @@ public class Book implements Serializable {
                 ", urlsText='" + urlsText + '\'' +
                 '}';
     }
+
 }

@@ -9,7 +9,7 @@ import org.w3c.dom.Document;
 public interface WebServiceConnectionManager {
     /**
      * To get Book from the remote web service
-     * by bookISBN.
+     * by bookISBN. Retrieve XML then parse it.
      *
      * @param bookISBN - ISBN of book.
      * @return Book - Retrieved book.

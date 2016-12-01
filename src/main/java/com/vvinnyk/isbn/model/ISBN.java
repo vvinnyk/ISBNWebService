@@ -34,6 +34,13 @@ public class ISBN implements Serializable {
         this.isbn13 = isbn13;
     }
 
+    public boolean isNotNull() {
+        if (isbn10 == null && isbn13 == null) {
+            return false;
+        }
+        return true;
+    }
+
     public boolean isISBNExists(String isbn) {
         if (isbn10.equals(isbn) ||
                 isbn13.equals(isbn)) {
