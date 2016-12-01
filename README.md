@@ -1,4 +1,4 @@
-
+ 
 # ISBNWebService
 The goal of this application is made possible to get data from remote source about books.
 In this example data loading is implemented from http://isbndb.com web serice. This remote web service returns an xml
@@ -18,6 +18,7 @@ Steps to install application:
 2) assembly project: mvn clean compile assembly:single <br/>
 3) navigate to the folder: cd target <br/>
 4) Start Server: java -jar ISBNWebService-1.0-SNAPSHOT-jar-with-dependencies.jar<br/>
+Default port is 8765, you can specify it as parameter.
 
 ## Usage
 
