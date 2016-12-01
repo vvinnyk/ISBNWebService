@@ -24,11 +24,11 @@ Steps to install application:
 By default application can be accessible on http://localhost:8765/some?book=0312510780
 You can replace number of any valid book ISBN(Some books not available)
 To test you can use this ISBN:
-0439434408<br/>
-1627790624<br/>
+0439434408 <br/>
+1627790624 <br/>
 0805096663(Or ISBN13:  9780805096668)<br/>
-0312510780<br/>
-0800788222<br/>
+0312510780 <br/>
+0800788222 <br/>
 
 ## History
 
