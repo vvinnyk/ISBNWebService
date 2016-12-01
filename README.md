@@ -1,3 +1,4 @@
+
 # ISBNWebService
 The goal of this application is made possible to get data from remote source about books.
 In this example data loading is implemented from http://isbndb.com web serice. This remote web service returns an xml
@@ -21,7 +22,13 @@ Steps to install application:
 ## Usage
 
 By default application can be accessible on http://localhost:8765/some?book=0312510780
-You can replace number of any valid book ISBN(The most recent books can be not available)
+You can replace number of any valid book ISBN(Some books not available)
+To test you can use this ISBN:
+0439434408
+1627790624
+0805096663(Or ISBN13:  9780805096668)
+0312510780
+0800788222
 
 ## History
 
