@@ -71,33 +71,9 @@ public class XPathXmlParserImpl implements XPathXmlParser {
                 if (node.getNodeType() == Node.ELEMENT_NODE
                         && DATA.equals(((Element) node).getTagName())) {
                     Element dataElement = (Element) node;
-                    //TODO Refactor This
+
                     NodeList authorDates = dataElement.getElementsByTagName(AUTHOR_DATA);
-                    Node awardsTextNode = dataElement.getElementsByTagName(AWARDS_TEXT).item(0);
-                    Node bookId = dataElement.getElementsByTagName(BOOK_ID).item(0);
-                    Node deweyDecimal = dataElement.getElementsByTagName(DEWEY_DECIMAL).item(0);
-                    Node deweyNormal = dataElement.getElementsByTagName(DEWEY_NORMAL).item(0);
-                    Node editionInfo = dataElement.getElementsByTagName(EDITION_INFO).item(0);
-
-                    Node isbn10 = dataElement.getElementsByTagName(ISBN_10).item(0);
-                    Node isbn13 = dataElement.getElementsByTagName(ISBN_13).item(0);
-
-                    Node language = dataElement.getElementsByTagName(LANGUAGE).item(0);
-                    Node lccNumber = dataElement.getElementsByTagName(LCC_NUMBER).item(0);
-                    Node marcEncLevel = dataElement.getElementsByTagName(MARC_ENC_LEVEL).item(0);
-                    Node notes = dataElement.getElementsByTagName(NOTES).item(0);
-                    Node physicalDescriptionText = dataElement.getElementsByTagName(PHYSICAL_DESCRIPTION_TEXT).item(0);
-
-                    Node publisherId = dataElement.getElementsByTagName(PUBLISHER_ID).item(0);
-                    Node publisherName = dataElement.getElementsByTagName(PUBLISHER_NAME).item(0);
-                    Node publisherText = dataElement.getElementsByTagName(PUBLISHER_TEXT).item(0);
                     NodeList subjectIdsNodes = dataElement.getElementsByTagName(SUBJECT_IDS);
-                    Node summary = dataElement.getElementsByTagName(SUMMARY).item(0);
-
-                    Node title = dataElement.getElementsByTagName(TITLE).item(0);
-                    Node titleLatin = dataElement.getElementsByTagName(TITLE_LATIN).item(0);
-                    Node titleLong = dataElement.getElementsByTagName(TITLE_LONG).item(0);
-                    Node urlsText = dataElement.getElementsByTagName(URLS_TEXT).item(0);
 
                     List<Author> authors = new ArrayList<>();
                     for (int i = 0; i < authorDates.getLength(); i++) {
@@ -119,24 +95,24 @@ public class XPathXmlParserImpl implements XPathXmlParser {
                     }
 
                     book.setAuthors(authors);
-                    book.setAwards(getTextContentOfElementNode(awardsTextNode));
-                    book.setBookId(getTextContentOfElementNode(bookId));
-                    book.setDeweyDecimal(getTextContentOfElementNode(deweyDecimal));
-                    book.setDeweyNormal(getTextContentOfElementNode(deweyNormal));
-                    book.setEditionInfo(getTextContentOfElementNode(editionInfo));
-                    book.setIsbn(new ISBN(getTextContentOfElementNode(isbn10), getTextContentOfElementNode(isbn13)));
-                    book.setLanguage(getTextContentOfElementNode(language));
-                    book.setLccNumber(getTextContentOfElementNode(lccNumber));
-                    book.setMarcEncLevel(getTextContentOfElementNode(marcEncLevel));
-                    book.setNotes(getTextContentOfElementNode(notes));
-                    book.setPhysicalDescriptionText(getTextContentOfElementNode(physicalDescriptionText));
-                    book.setPublisher(new Publisher(getTextContentOfElementNode(publisherId), getTextContentOfElementNode(publisherName),
-                            getTextContentOfElementNode(publisherText)));
+                    book.setAwards(retrieveText(dataElement, AWARDS_TEXT));
+                    book.setBookId(retrieveText(dataElement, BOOK_ID));
+                    book.setDeweyDecimal(retrieveText(dataElement, DEWEY_DECIMAL));
+                    book.setDeweyNormal(retrieveText(dataElement, DEWEY_NORMAL));
+                    book.setEditionInfo(retrieveText(dataElement, EDITION_INFO));
+                    book.setIsbn(new ISBN(retrieveText(dataElement, ISBN_10), retrieveText(dataElement, ISBN_13)));
+                    book.setLanguage(retrieveText(dataElement, LANGUAGE));
+                    book.setLccNumber(retrieveText(dataElement, LCC_NUMBER));
+                    book.setMarcEncLevel(retrieveText(dataElement, MARC_ENC_LEVEL));
+                    book.setNotes(retrieveText(dataElement, NOTES));
+                    book.setPhysicalDescriptionText(retrieveText(dataElement, PHYSICAL_DESCRIPTION_TEXT));
+                    book.setPublisher(new Publisher(retrieveText(dataElement, PUBLISHER_ID), retrieveText(dataElement, PUBLISHER_NAME),
+                            retrieveText(dataElement, PUBLISHER_TEXT)));
                     book.setSubjectIds(subjectIds);
-                    book.setSummary(getTextContentOfElementNode(summary));
-                    book.setTitle(new Title(getTextContentOfElementNode(title), getTextContentOfElementNode(titleLatin),
-                            getTextContentOfElementNode(titleLong)));
-                    book.setUrlsText(getTextContentOfElementNode(urlsText));
+                    book.setSummary(retrieveText(dataElement, SUMMARY));
+                    book.setTitle(new Title(retrieveText(dataElement, TITLE), retrieveText(dataElement, TITLE_LATIN),
+                            retrieveText(dataElement, TITLE_LONG)));
+                    book.setUrlsText(retrieveText(dataElement, URLS_TEXT));
                 }
             }
         } catch (XPathExpressionException e) {
@@ -144,6 +120,11 @@ public class XPathXmlParserImpl implements XPathXmlParser {
             throw new XmlParserException(Messages.BOOK_CANT_BE_FOUND, Messages.UNABLE_CREATE_XPATH, Lists.newArrayList(xmlDocument.getDocumentURI()));
         }
         return book;
+    }
+
+    private String retrieveText(Element dataElement, String tagName) {
+        Node node = dataElement.getElementsByTagName(tagName).item(0);
+        return getTextContentOfElementNode(node);
     }
 
     private String getTextContentOfElementNode(Node node) {
