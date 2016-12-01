@@ -4,7 +4,7 @@ package com.vvinnyk.isbn;
  * @author Vladyslav_Vinnyk on 11/30/2016.
  */
 public final class Properties {
-    public static final int HTTP_SERVER_PORT = 8765;
+    public static final int DEFAULT_HTTP_SERVER_PORT = 8765;
 
     public static final String LOGGER_NAME = "ISBNWebService";
 

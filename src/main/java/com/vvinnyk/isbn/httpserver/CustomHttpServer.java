@@ -36,16 +36,28 @@ public class CustomHttpServer {
     public static void main(String[] args) throws Exception {
         LOG.debug(Messages.SERVER_IS_GOING_TO_START);
 
+        int port = getPort(args);
+
         HttpServer httpServer = HttpServer.create();
-        httpServer.bind(new InetSocketAddress(Properties.HTTP_SERVER_PORT), 0);
+        httpServer.bind(new InetSocketAddress(port), 0);
 
         httpServer.createContext("/", new EchoHandler());
 
         httpServer.setExecutor(null);
         httpServer.start();
 
-        LOG.debug(Messages.SERVER_IS_STARTED_AT_PORT, Properties.HTTP_SERVER_PORT);
-        LOG.info(Messages.ADVICE_TO_USER, Properties.HTTP_SERVER_PORT);
+        LOG.debug(Messages.SERVER_IS_STARTED_AT_PORT, port);
+        LOG.info(Messages.ADVICE_TO_USER, port);
+    }
+
+    private static int getPort(String[] args) {
+        if (args.length > 0) {
+            String port = args[0];
+            if (port != null && port.matches("\\d{1,5}")) {
+                return Integer.parseInt(port);
+            }
+        }
+        return Properties.DEFAULT_HTTP_SERVER_PORT;
     }
 
     static class EchoHandler implements HttpHandler {
