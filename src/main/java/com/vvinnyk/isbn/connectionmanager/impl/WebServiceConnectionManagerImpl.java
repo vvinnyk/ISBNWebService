@@ -34,14 +34,14 @@ public class WebServiceConnectionManagerImpl implements WebServiceConnectionMana
     }
 
     @Override
-    public Document requestXmlDocument(String webServiceUrl) {
-        LOG.debug(Messages.START_SENDING_REQUEST, webServiceUrl);
+    public Document requestXmlDocument(String xmlWebServiceUrl) {
+        LOG.debug(Messages.START_SENDING_REQUEST, xmlWebServiceUrl);
 
         Document document = null;
         try {
             DocumentBuilderFactory documentBuilderFactory = DocumentBuilderFactory.newInstance();
             DocumentBuilder documentBuilder = documentBuilderFactory.newDocumentBuilder();
-            document = documentBuilder.parse(webServiceUrl);
+            document = documentBuilder.parse(xmlWebServiceUrl);
         } catch (ParserConfigurationException e) {
             LOG.error(Messages.UNABLE_CREATE_DOCUMENT_BUILDER, e);
             throw new TechnicalException(Messages.UNABLE_CREATE_DOCUMENT_BUILDER, e);

@@ -5,6 +5,7 @@ import com.vvinnyk.isbn.model.Book;
 import com.vvinnyk.isbn.repository.api.BookRepository;
 import com.vvinnyk.isbn.connectionmanager.api.WebServiceConnectionManager;
 import com.vvinnyk.isbn.connectionmanager.api.WebServiceConnectionManagerWrapper;
+import com.vvinnyk.isbn.utils.Messages;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.w3c.dom.Document;
@@ -31,19 +32,19 @@ public class WebServiceConnectionManagerWrapperImpl implements WebServiceConnect
     public Book requestBook(String bookISBN) {
         Book bookFromRepository = bookRepository.findOne(bookISBN);
         return Optional.ofNullable(bookFromRepository)
-                .orElseGet(() -> requestBookAndSaveInRepository(bookISBN));
+                .orElseGet(() -> requestBookAndIfNotNullSaveInRepository(bookISBN));
     }
 
     @Override
-    public Document requestXmlDocument(String webServiceUrl) {
-        return this.webServiceConnectionManager.requestXmlDocument(webServiceUrl);
+    public Document requestXmlDocument(String xmlWebServiceUrl) {
+        return this.webServiceConnectionManager.requestXmlDocument(xmlWebServiceUrl);
     }
 
-    private Book requestBookAndSaveInRepository(String bookISBN) {
+    private Book requestBookAndIfNotNullSaveInRepository(String bookISBN) {
         Book bookFromWebService = webServiceConnectionManager.requestBook(bookISBN);
 
         if (bookFromWebService != null) {
-            LOG.debug("Saving Retrieved Book in Repository. ISBN is {}", bookFromWebService.getIsbn());
+            LOG.debug(Messages.SAVING_BOOK, bookFromWebService.getIsbn());
             bookFromWebService = bookRepository.save(bookFromWebService);
         }
 

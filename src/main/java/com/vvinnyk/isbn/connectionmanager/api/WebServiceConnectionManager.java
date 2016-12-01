@@ -7,7 +7,20 @@ import org.w3c.dom.Document;
  * @author Vladyslav_Vinnyk on 11/30/2016.
  */
 public interface WebServiceConnectionManager {
+    /**
+     * To get Book from the remote web service
+     * by bookISBN.
+     *
+     * @param bookISBN - ISBN of book.
+     * @return Book - Retrieved book.
+     */
     Book requestBook(String bookISBN);
 
-    Document requestXmlDocument(String webServiceUrl);
+    /**
+     * To get XML document from the remote web service.
+     *
+     * @param xmlWebServiceUrl - URL of XML
+     * @return
+     */
+    Document requestXmlDocument(String xmlWebServiceUrl);
 }

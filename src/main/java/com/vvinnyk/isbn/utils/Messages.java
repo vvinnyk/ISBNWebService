@@ -20,4 +20,8 @@ public final class Messages {
     public final static String UNABLE_CREATE_DOCUMENT_BUILDER = "Unable to Create Xml documentBuilder {}";
     public final static String UNABLE_PARSE_XML_DOCUMENT = "Unable to Parse Xml document. {}";
     public final static String UNABLE_REQUEST_BOOK = "Unable to request the Book {}";
+    public final static String ADVICE_TO_USER = "Server is Accessible on http://localhost:{}/some?book=ISBN" +
+            "\n Replace ISBN with real isbn of eny book";
+    public final static String SAVING_BOOK = "Saving Retrieved Book in Repository. ISBN is {}";
+
 }

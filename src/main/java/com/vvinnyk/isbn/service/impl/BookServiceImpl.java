@@ -30,7 +30,8 @@ public class BookServiceImpl implements BookService {
 
     @Override
     public Book search(String isbn) {
-        WebServiceConnectionManagerWrapper webServiceConnectionMangerWrapper = new WebServiceConnectionManagerWrapperImpl(webServiceConnectionManager, bookRepository);
+        WebServiceConnectionManagerWrapper webServiceConnectionMangerWrapper
+                = new WebServiceConnectionManagerWrapperImpl(webServiceConnectionManager, bookRepository);
         return webServiceConnectionMangerWrapper.requestBook(isbn);
     }
 
