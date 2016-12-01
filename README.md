@@ -8,7 +8,7 @@ and increase the speed of query processing.
 
 In the application were used Repository, Wrapper.
 
-To use application you need plain Web Browser.
+To use application you need plain Web Browser(Chrome, Mozilla Firefox more preferable).
 
 ## Installation
 
