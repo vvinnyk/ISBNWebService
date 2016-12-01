@@ -46,6 +46,8 @@ public class CustomHttpServer {
         httpServer.start();
 
         LOG.debug(Messages.SERVER_IS_STARTED_AT_PORT, Properties.HTTP_SERVER_PORT);
+        LOG.info("Server is Accessible on http://localhost:{}/some?book=ISBN" +
+                "\n Replace ISBN with real isbn of eny book", Properties.HTTP_SERVER_PORT);
     }
 
     static class EchoHandler implements HttpHandler {
