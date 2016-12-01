@@ -13,10 +13,10 @@ To use application you need plain Web Browser.
 
 Steps to install application:
 
-1) Fetch project
-2) assembly project:  mvn clean compile assembly:single
-3) navigate to the folder: cd target 
-4) Start Server: java -jar ISBNWebService-1.0-SNAPSHOT-jar-with-dependencies.jar
+1) Fetch project<br/>
+2) assembly project: mvn clean compile assembly:single <br/>
+3) navigate to the folder: cd target <br/>
+4) Start Server: java -jar ISBNWebService-1.0-SNAPSHOT-jar-with-dependencies.jar<br/>
 
 ## Usage
 
