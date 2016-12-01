@@ -1,0 +1,35 @@
+<isbndb>
+    <data>
+        <author_data>
+            <id>555</id>
+            <name>Author1</name>
+        </author_data>
+        <author_data>
+            <id>777</id>
+            <name>Author1</name>
+        </author_data>
+        <awards_text>awards1</awards_text>
+        <book_id>bookId1</book_id>
+        <dewey_decimal>deweyDecimal1</dewey_decimal>
+        <dewey_normal>deweyNormal1</dewey_normal>
+        <edition_info>editInfo1</edition_info>
+        <isbn10>isbn101</isbn10>
+        <isbn13>isbn131</isbn13>
+        <language>language1</language>
+        <lcc_number>lccNumber1</lcc_number>
+        <marc_enc_level>marcEncLevel1</marc_enc_level>
+        <notes>notes1</notes>
+        <physical_description_text>physicalDescriptionText1</physical_description_text>
+        <publisher_id>publisherId1</publisher_id>
+        <publisher_name>publisherName1</publisher_name>
+        <publisher_text>publishText1</publisher_text>
+        <subject_ids>FirstSubjectIds1</subject_ids>
+        <subject_ids>SecondSubjectIds1</subject_ids>
+        <summary>summary1</summary>
+        <title>title1</title>
+        <title_latin>titleLatin1</title_latin>
+        <title_long>titleLong1</title_long>
+        <urls_text>urlsText1</urls_text>
+    </data>
+    <index_searched>isbn</index_searched>
+</isbndb>
