@@ -31,6 +31,7 @@ To test you can use this ISBN:
 0312510780 <br/>
 0800788222 <br/>
 
+Note that there is limit 500 requests(http://isbndb.com) per day.
 ## History
 
 TODO: Write history

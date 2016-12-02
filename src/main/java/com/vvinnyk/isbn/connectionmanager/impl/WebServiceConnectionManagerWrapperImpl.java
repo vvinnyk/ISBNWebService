@@ -46,7 +46,7 @@ public class WebServiceConnectionManagerWrapperImpl implements WebServiceConnect
         if (bookFromWebService != null && bookFromWebService.getIsbn() != null
                 && bookFromWebService.getIsbn().isNotNull()) {
             LOG.debug(Messages.SAVING_BOOK, bookFromWebService.getIsbn());
-            bookFromWebService = bookRepository.save(bookFromWebService);
+            return bookRepository.save(bookFromWebService);
         }
 
         return bookFromWebService;
