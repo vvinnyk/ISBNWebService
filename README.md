@@ -18,13 +18,13 @@ Steps to install application:
 2) assembly project: mvn clean compile assembly:single <br/>
 3) navigate to the folder: cd target <br/>
 4) Start Server: java -jar ISBNWebService-1.0-SNAPSHOT-jar-with-dependencies.jar<br/>
-Default port is 8765, you can specify it as parameter.
+Default port is 8765, you can specify it as parameters.
 
 ## Usage
 
 By default application can be accessible on http://localhost:8765/some?book=0312510780
-You can replace number of any valid book ISBN(Some books not available)
-To test you can use this ISBN:
+You can replace number by any valid book ISBN(Some books not available)
+To test you can use this ISBN: <br/>
 0439434408 <br/>
 1627790624 <br/>
 0805096663(Or ISBN13:  9780805096668)<br/>
