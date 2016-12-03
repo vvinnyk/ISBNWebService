@@ -6,7 +6,8 @@ the application convert it to JSON and returns it to client. At the same time sa
 that subsequent requests for the same book will be returned from repository. Purpose is to not overhead remote service
 and increase the speed of query processing.
 
-In the application were used Repository, Wrapper.
+In the application were used Repository, Wrapper designt patterns.
+Also was implemented simple httpServer.
 
 To use application you need plain Web Browser(Chrome, Mozilla Firefox more preferable).
 

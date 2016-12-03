@@ -4,6 +4,7 @@ import com.sun.net.httpserver.HttpExchange;
 import com.sun.net.httpserver.HttpHandler;
 import com.sun.net.httpserver.HttpServer;
 import com.vvinnyk.isbn.Properties;
+import com.vvinnyk.isbn.exception.BusinessException;
 import com.vvinnyk.isbn.rest.api.BookRestController;
 import com.vvinnyk.isbn.rest.impl.BookRestControllerImpl;
 import com.vvinnyk.isbn.utils.Messages;
@@ -68,8 +69,10 @@ public class CustomHttpServer {
             if (isNotBlank(bookIsbn)) {
                 try {
                     response = bookRestController.getBookAsJSON(bookIsbn);
-                } catch (Exception e) {
-                    response = e.getMessage();
+                } catch (BusinessException e) {
+                    response = e.getSummary();
+                } catch (Throwable e) {
+                    response = e.getLocalizedMessage();
                 }
             }
 
