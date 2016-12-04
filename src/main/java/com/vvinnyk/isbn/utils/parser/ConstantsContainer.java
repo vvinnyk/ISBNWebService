@@ -5,6 +5,10 @@ package com.vvinnyk.isbn.utils.parser;
  */
 public final class ConstantsContainer {
 
+    private ConstantsContainer() {
+        new IllegalArgumentException("Not designed for instantiation");
+    }
+
     public static final class Book {
         public static final String ENTITY_NAME = "book";
 

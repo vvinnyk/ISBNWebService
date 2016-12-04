@@ -6,6 +6,11 @@ package com.vvinnyk.isbn.utils;
  * @authors Vladyslav_Vinnyk on 12/1/2016.
  */
 public final class Messages {
+
+    private Messages() {
+        new IllegalArgumentException("Not designed for instantiation");
+    }
+
     //ServerMeassages
     public final static String SERVER_IS_GOING_TO_START = "Server is going to Starting...";
     public final static String SERVER_IS_STARTED_AT_PORT = "Server is started at port {}";
